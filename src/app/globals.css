@@ -1,0 +1,105 @@
+@import "tailwindcss";
+
+@theme {
+  --color-paper: #f7f4ef;
+  --color-cream: #efeae1;
+  --color-sand: #e4dcd0;
+  --color-ink: #17130f;
+  --color-ink-2: #221b14;
+  --color-ink-3: #2e2519;
+  --color-brand: #e2371f;
+  --color-brand-dark: #b8260f;
+  --color-gold: #f0a12b;
+  --color-leaf: #1f7a3d;
+
+  --font-display: var(--font-archivo), "Arial Narrow", sans-serif;
+  --font-sans: var(--font-inter), system-ui, sans-serif;
+
+  --shadow-card: 0 1px 2px rgb(23 19 15 / 0.06), 0 12px 32px -12px rgb(23 19 15 / 0.18);
+  --shadow-pop: 0 2px 4px rgb(23 19 15 / 0.08), 0 24px 48px -16px rgb(23 19 15 / 0.28);
+
+  --animate-marquee: marquee 28s linear infinite;
+  --animate-pulse-soft: pulse-soft 2.4s ease-in-out infinite;
+
+  @keyframes marquee {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+  @keyframes pulse-soft {
+    0%, 100% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.05); opacity: 0.92; }
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--color-paper);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background: var(--color-brand);
+  color: #fff;
+}
+
+/* thin custom scrollbar */
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-track { background: var(--color-cream); }
+::-webkit-scrollbar-thumb { background: #c8bfae; border-radius: 999px; border: 2px solid var(--color-cream); }
+::-webkit-scrollbar-thumb:hover { background: #b0a68f; }
+
+/* dotted texture used on dark sections */
+.texture-dots {
+  background-image: radial-gradient(rgb(255 255 255 / 0.07) 1px, transparent 1px);
+  background-size: 22px 22px;
+}
+
+.texture-grid {
+  background-image:
+    linear-gradient(rgb(23 19 15 / 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgb(23 19 15 / 0.05) 1px, transparent 1px);
+  background-size: 44px 44px;
+}
+
+/* underline sweep for nav links */
+.link-sweep {
+  position: relative;
+}
+.link-sweep::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -3px;
+  height: 2px;
+  width: 100%;
+  background: currentColor;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.link-sweep:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+/* big display type helper */
+.display-tight {
+  font-family: var(--font-display);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 0.95;
+  text-transform: uppercase;
+}
+
+/* price tag */
+.price-tag {
+  font-family: var(--font-display);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  font-variant-numeric: tabular-nums;
+}
