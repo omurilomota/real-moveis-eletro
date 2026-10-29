@@ -1,7 +1,7 @@
 export const site = {
   name: "Real Móveis Eletro",
   shortName: "Real",
-  domain: "real-moveis.vercel.app",
+  domain: "real-moveis-eletro.vercel.app",
   url:
     process.env.NEXT_PUBLIC_SITE_URL ??
     (process.env.VERCEL_URL
