@@ -145,7 +145,7 @@ export default async function Image(
           </div>
 
           <div style={{ color: "rgba(255,255,255,0.55)", fontSize: 22, fontWeight: 600 }}>
-            Entrega e montagem grátis · real-moveis.vercel.app
+            Entrega e montagem grátis · real-moveis-eletro.vercel.app
           </div>
         </div>
 
